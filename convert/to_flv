@@ -1,0 +1,13 @@
+#!/bin/bash  
+# ogv2avi  
+# Call this with multiple arguments  
+# for example : ls *.{ogv,OGV} | xargs ogv2avi  
+N=$#;  
+echo "Converting $N files !"  
+for ((i=0; i<=(N-1); i++))  
+do  
+echo "converting" $1  
+filename=${1%.*}  
+mencoder "$1" -of lavf -oac mp3lame -ovc lavc -lavcopts vcodec=flv:vbitrate=256:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=900:-3 -ofps 12 -srate 22050 -o $filename.flv  
+shift 1  
+done  

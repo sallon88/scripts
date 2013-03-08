@@ -1,0 +1,2 @@
+#!/bin/bash
+recordmydesktop --width 1360 --height 768 --follow-mouse
