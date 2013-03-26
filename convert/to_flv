@@ -1,7 +1,6 @@
 #!/bin/bash  
-# ogv2avi  
 # Call this with multiple arguments  
-# for example : ls *.{ogv,OGV} | xargs ogv2avi  
+# for example : ls *.{ogv,OGV} | xargs to_flv  
 N=$#;  
 echo "Converting $N files !"  
 for ((i=0; i<=(N-1); i++))  

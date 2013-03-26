@@ -1,7 +1,6 @@
 #!/bin/bash  
-# ogv2mp3  
 # Call this with multiple arguments  
-# for example : ls *.{ogv,OGV} | xargs ogv2mp3  
+# for example : ls *.{ogv,OGV} | xargs to_mp3  
 N=$#;  
 echo "Converting $N files !"  
 for ((i=0; i<=(N-1); i++))  

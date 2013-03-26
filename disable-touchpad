@@ -1,10 +1,10 @@
 #!/bin/bash
 # 
-# to disable touchpad
+# to disable/enable touchpad
 #
 
 # get touchpad mouse id
 no=$(xinput list | awk -F= '/TouchPad/{print $2}' | awk '{print $1}')
 
-xinput set-prop $no "Device Enabled" 0
+xinput set-prop $no "Device Enabled" ${1-0}
 exit 0
