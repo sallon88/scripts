@@ -1,4 +1,7 @@
 #!/bin/bash
+# 
+# remove all kernels except the current one
+# 
 # run as root!
 
 current_kernel_version=$(uname -r|sed 's/\([0-9]\+\([-.][0-9]\+\)*\).*/\1/')
