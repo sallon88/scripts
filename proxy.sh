@@ -17,12 +17,13 @@ proxy_start()
 
 proxy_stop()
 {
-	if [ ! is_proxy_start ]; then
-		echo "proxy isn't running.\n"
-		exit 1
+	if is_proxy_start; then
+		proxy_pid=$(netstat -tunpl 2> /dev/null | grep :8000 | awk {'print $7'} | awk -F/ {'print $1'})
+		kill -9 $proxy_pid
+		return 0
 	fi
-	proxy_pid=$(netstat -tunpl 2> /dev/null | grep :8000 | awk {'print $7'} | awk -F/ {'print $1'})
-	kill -9 $proxy_pid
+	echo "proxy isn't running.\n"
+	exit 1
 }
 
 case "${1-start}" in
